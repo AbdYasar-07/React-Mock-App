@@ -8,7 +8,11 @@ import ProfileCard from "./Components/ProfileCard.js";
 import "./Components/Header/Header.css";
 import ErrorCard from "./Components/ErrorCard.js";
 
-function App() {
+interface Props {
+  buttonName?: string;
+}
+
+function App({ buttonName }: Props) {
   // const [showAlert, setShowAlert] = useState(false);
   // const [selectedItem, setSelectedItem] = useState("");
   // const cities = [
@@ -54,7 +58,7 @@ function App() {
         onSelectItem={handleSelectItem}
       /> */}
 
-      <Navbar isAuthenticated={isAuthenticated} />
+      <Navbar isAuthenticated={isAuthenticated} buttonName={buttonName} />
       {isLoading && (
         <TailSpin
           height="80"
@@ -66,7 +70,7 @@ function App() {
           wrapperClass="center"
         />
       )}
-      {isAuthenticated && <ProfileCard user={user} />}
+      {isAuthenticated && <ProfileCard user={user} buttonName={buttonName} />}
       {!isAuthenticated && error && (
         <ErrorCard errorTitle={error.name} errorMessage={error.message} />
       )}
