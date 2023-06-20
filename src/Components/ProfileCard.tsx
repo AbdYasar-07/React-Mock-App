@@ -16,6 +16,9 @@ function ProfileCard({ user, buttonName }: Props) {
         alignItems: "center",
         justifyContent: "center",
         padding: "10px",
+        position:"fixed",
+        top:"20%",
+        left:"40%"
       }}
     >
       <div className="card">

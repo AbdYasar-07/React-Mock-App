@@ -59,6 +59,7 @@ function App({ buttonName }: Props) {
       /> */}
 
       <Navbar isAuthenticated={isAuthenticated} buttonName={buttonName} />
+      <div style={{position:"absolute",top:"35%",left:"43%"}}>
       {isLoading && (
         <TailSpin
           height="80"
@@ -70,10 +71,11 @@ function App({ buttonName }: Props) {
           wrapperClass="center"
         />
       )}
-      {isAuthenticated && <ProfileCard user={user} buttonName={buttonName} />}
-      {!isAuthenticated && error && (
+      </div>
+      {isAuthenticated && <ProfileCard user={user} buttonName={buttonName} />} 
+       {/* {!isAuthenticated && error && (
         <ErrorCard errorTitle={error.name} errorMessage={error.message} />
-      )}
+      )} */}
       {isAuthenticated ? FetchAccessToken() : null}
     </>
   );

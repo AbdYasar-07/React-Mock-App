@@ -3,8 +3,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "bootstrap/dist/css/bootstrap.css";
 import { Auth0Provider } from "@auth0/auth0-react";
+import ProfileCard from "./Components/ProfileCard.tsx";
+
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  
   <React.StrictMode>
     <div style={{ padding: "10px",display:"flex",justifyContent:"space-between",background: "#3f5997"  }}>
        <div>
@@ -17,8 +20,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
        </div>
       <div style={{display:"flex",justifyContent:"space-around",alignItems:"center"}}>
       <Auth0Provider
-            domain="dev-o8ea8tzikc0zrjie.us.auth0.com"
-            clientId="9lmP5sTdoxpbtq8hy0hc3j89pgqYTHri"
+            domain="dev-34chvqyi4i2beker.jp.auth0.com"
+            clientId="WwxK4QxmML6aLUwBRpzbu5RTGce4nTXj"
             authorizationParams={{ redirect_uri: window.location.origin }}
           > 
           <div style={{marginRight:"30px",borderRight:"solid 2px #ccc",alignSelf:"flex-start"}}>
@@ -27,8 +30,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           </Auth0Provider>
 
           <Auth0Provider
-            domain="dev-o8ea8tzikc0zrjie.us.auth0.com"
-            clientId="gwf2UlWH5njGVh6T8PoyoM8cD7R97igf"
+            domain="dev-34chvqyi4i2beker.jp.auth0.com"
+            clientId="bmMx1zttHaZWObU6oMioca4nBxjz9R3k"
             authorizationParams={{ redirect_uri: window.location.origin }}
           >
             <div  style={{marginLeft:"10px",alignSelf:"flex-start"}}>
