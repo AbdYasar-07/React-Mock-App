@@ -37,13 +37,7 @@ function Navbar({ isAuthenticated, buttonName }: Props) {
   return (
     <div>
       <>
-        <nav className="navbar navbar-dark" style={{ }}>
-          {/* <a className="navbar-brand ps-5 name">
-            <img
-              src="https://images.carriercms.com/image/upload/v1629825291/common/logos-svg/carrier-logo.svg"
-              style={{ width: "100px", height: "60px" }}
-            ></img>
-          </a> */}
+        <nav className="navbar navbar-dark" style={{}}>
           <form className="form-inline">
             <button
               className="btn btn-primary my-2 my-sm-0 me-5 name"
@@ -58,7 +52,7 @@ function Navbar({ isAuthenticated, buttonName }: Props) {
                   });
                 }
               }}
-            >  
+            >
               {isAuthenticated
                 ? `Logout For ${buttonName}`
                 : `Login For ${buttonName}`}
