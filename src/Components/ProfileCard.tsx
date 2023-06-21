@@ -7,7 +7,7 @@ interface Props {
 
 function ProfileCard({ user, buttonName }: Props) {
 
-  const url = `https://www.carrier.com/${buttonName?.toLowerCase()}/en/us`
+  const url = `https://carrier.com.ph/${buttonName}`
 
   return (
     <div
