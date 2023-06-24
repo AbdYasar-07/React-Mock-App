@@ -3,25 +3,38 @@ import Navbar from "./Components/Header/Navbar.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
 import ProfileCard from "./Components/ProfileCard.js";
 import "./Components/Header/Header.css";
-// import ErrorCard from "./Components/ErrorCard.js";
 
 interface Props {
   buttonName?: string;
 }
 
 function App({ buttonName }: Props) {
+  const {
+    user,
+    isAuthenticated,
+    isLoading,
+    getAccessTokenSilently,
+    getIdTokenClaims,
+  } = useAuth0();
   const FetchAccessToken = () => {
     getAccessTokenSilently()
-      .then((success) => {
-        console.log("Access Token", success);
+      .then((tkn) => {
+        sessionStorage.setItem("acc_tkn", tkn);
       })
       .catch((error) => {
         console.error(error);
       });
   };
 
-  const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
-    useAuth0();
+  const GetIdToken = () => {
+    getIdTokenClaims()
+      .then((payload) => {
+        sessionStorage.setItem("id_tkn", payload?.__raw ? payload.__raw : "");
+      })
+      .catch((error) => {
+        console.log("error ::", error);
+      });
+  };
 
   return (
     <>
@@ -44,6 +57,7 @@ function App({ buttonName }: Props) {
         <ErrorCard errorTitle={error.name} errorMessage={error.message} />
       )} */}
       {isAuthenticated ? FetchAccessToken() : null}
+      {isAuthenticated ? GetIdToken() : null}
     </>
   );
 }

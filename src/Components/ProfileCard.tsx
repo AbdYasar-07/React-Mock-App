@@ -2,12 +2,12 @@ import { User } from "@auth0/auth0-react";
 
 interface Props {
   user?: User;
-  buttonName? : string;
+  buttonName?: string;
 }
 
 function ProfileCard({ user, buttonName }: Props) {
-
-  const url = `https://carrier.com.ph/${buttonName}`
+  const url = `https://carrier.com.ph/${buttonName}`;
+  const app2URL = `http://localhost:4040/profile`;
 
   return (
     <div
@@ -16,9 +16,9 @@ function ProfileCard({ user, buttonName }: Props) {
         alignItems: "center",
         justifyContent: "center",
         padding: "10px",
-        position:"fixed",
-        top:"20%",
-        left:"40%"
+        position: "fixed",
+        top: "20%",
+        left: "40%",
       }}
     >
       <div className="card">
@@ -34,6 +34,14 @@ function ProfileCard({ user, buttonName }: Props) {
           {}
           <a href={url} target="_blank" className="btn btn-primary">
             Go to {buttonName}
+          </a>
+          <a
+            href={app2URL}
+            target="_blank"
+            className="btn btn-primary"
+            style={{ marginLeft: "10px" }}
+          >
+            Go to App2
           </a>
         </div>
       </div>
