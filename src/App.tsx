@@ -1,63 +1,30 @@
-import { TailSpin } from "react-loader-spinner";
-import Navbar from "./Components/Header/Navbar.jsx";
-import { useAuth0 } from "@auth0/auth0-react";
-import ProfileCard from "./Components/ProfileCard.js";
-import "./Components/Header/Header.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Login from "./Components/Login";
+import Profile from "./Components/Profile";
 
 interface Props {
   buttonName?: string;
 }
 
 function App({ buttonName }: Props) {
-  const {
-    user,
-    isAuthenticated,
-    isLoading,
-    getAccessTokenSilently,
-    getIdTokenClaims,
-  } = useAuth0();
-  const FetchAccessToken = () => {
-    getAccessTokenSilently()
-      .then((tkn) => {
-        sessionStorage.setItem("acc_tkn", tkn);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  const GetIdToken = () => {
-    getIdTokenClaims()
-      .then((payload) => {
-        sessionStorage.setItem("id_tkn", payload?.__raw ? payload.__raw : "");
-      })
-      .catch((error) => {
-        console.log("error ::", error);
-      });
-  };
+  const route = createBrowserRouter([
+    {
+      path: "/",
+      element: <Profile buttonName={buttonName} />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+  ]);
 
   return (
     <>
-      <Navbar isAuthenticated={isAuthenticated} buttonName={buttonName} />
-      <div style={{ position: "absolute", top: "35%", left: "43%" }}>
-        {isLoading && (
-          <TailSpin
-            height="80"
-            width="80"
-            color="blue"
-            ariaLabel="tail-spin-loading"
-            radius="1"
-            wrapperStyle={{}}
-            wrapperClass="center"
-          />
-        )}
-      </div>
-      {isAuthenticated && <ProfileCard user={user} buttonName={buttonName} />}
-      {/* {!isAuthenticated && error && (
-        <ErrorCard errorTitle={error.name} errorMessage={error.message} />
-      )} */}
-      {isAuthenticated ? FetchAccessToken() : null}
-      {isAuthenticated ? GetIdToken() : null}
+      {/* <Routes>
+        <Route path="/login" Component={Login}>
+        </Route>
+      </Routes> */}
+      {<RouterProvider router={route} />}
     </>
   );
 }
