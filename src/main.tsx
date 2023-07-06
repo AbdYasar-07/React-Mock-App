@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       >
         <Auth0Provider
           domain="dev-34chvqyi4i2beker.jp.auth0.com"
-          clientId="WwxK4QxmML6aLUwBRpzbu5RTGce4nTXj"
+          clientId="KdqlogzQyU0yolMYQrruqVMVzJwDqGLH"
           authorizationParams={{
             useRefreshTokens: true,
             redirect_uri: window.location.origin,
@@ -46,7 +46,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
               alignSelf: "flex-start",
             }}
           >
-            <App buttonName="Residential" />
+            <App buttonName="Mock-Login" />
           </div>
         </Auth0Provider>
 
