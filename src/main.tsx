@@ -31,26 +31,27 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       >
         <Auth0Provider
           domain="dev-34chvqyi4i2beker.jp.auth0.com"
-          clientId="KdqlogzQyU0yolMYQrruqVMVzJwDqGLH"
+          clientId="BFVFsiNyByBt0wc1HBXGSzTcrywxqR82" // Dev1 Parts & Service
           authorizationParams={{
             useRefreshTokens: true,
             redirect_uri: window.location.origin,
             ignoreCache: true,
             audience: "https://dev-34chvqyi4i2beker.jp.auth0.com/api/v2/",
+            organization: "org_4UAey1mek2Dm0ZCZ", // Dev1 Concepcion Organization
           }}
         >
           <div
-            style={{
-              marginRight: "30px",
-              borderRight: "solid 2px #ccc",
-              alignSelf: "flex-start",
-            }}
+            // style={{
+            //   marginRight: "30px",
+            //   borderRight: "solid 2px #ccc",
+            //   alignSelf: "flex-start",
+            // }}
           >
-            <App buttonName="Mock-Login" />
+            <App buttonName="Parts & Service" />
           </div>
         </Auth0Provider>
 
-        <Auth0Provider
+        {/* <Auth0Provider
           domain="dev-34chvqyi4i2beker.jp.auth0.com"
           clientId="bmMx1zttHaZWObU6oMioca4nBxjz9R3k"
           authorizationParams={{
@@ -63,7 +64,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <div style={{ marginLeft: "10px", alignSelf: "flex-start" }}>
             <App buttonName="Commercial" />
           </div>
-        </Auth0Provider>
+        </Auth0Provider> */}
       </div>
     </div>
   </React.StrictMode>
